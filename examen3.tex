@@ -1,0 +1,212 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%       Plantilla tipo ArtIculo     %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%      Para exámenes de ASI         %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%      Creado por Luis G. Ochoa     %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%   TIPO DE DOCUMENTO: ArtIculo   %%%%%%
+\documentclass[letterpaper,11pt]{article}
+
+%%%%%%%  ESPECIFICACION DE PAQUETES   %%%%%
+\usepackage[margin=1.9cm]{geometry}
+\usepackage{changepage}
+\usepackage[spanish,es-lcroman]{babel} \decimalpoint
+\usepackage{graphicx} %Manejo de imagenes
+\usepackage{enumerate}% http://ctan.org/pkg/enumerate
+
+\usepackage{paralist} %
+%\usepackage{enumitem}% http://ctan.org/pkg/enumitem
+\renewcommand{\labelenumi}{\theenumi}
+\usepackage{simbolos} %Math symbols
+
+\DeclareUnicodeCharacter{2212}{-} % use minus symbol
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%    INICIO DEL CUERPO DEL DOCUMENTO    %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\setlength{\parindent}{0pt}
+
+Álgebra Superior I \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;
+Semestre 2021-1
+
+  \rule{16.6cm}{0.3pt} % Linea horizontal
+  \begin{center}
+    \LARGE \textbf{\\Tarea-Examen 3: Números naturales}
+  \end{center}
+  \rule{16.6cm}{0.3pt} \newline
+
+  Grupo: 4010 \newline
+  Luis Gonzalo Ochoa Rivera \newline \newline
+
+  Resuelve los siguientes ejercicios justificando tu respuesta. \newline
+
+%\begin{enumerate}
+  %\item
+  1. (2.5 puntos) Dado $m \in \bN$ se define el factorial de $m$ como $m! := m(m - 1)(m - 2) \dotsc (1)$ si $m \neq 0$ y $0! = 1$. Demuestre que para todo $n \in \bN^+$ se tiene que:
+  \begin{align*}
+    (1)1! + (2)2! + \dotsc + (n)n! = (n + 1)! − 1.
+  \end{align*}
+
+  Demostración. Sea $A := \{ n \in \bN^+ : (1)1! + (2)2! + \dotsc + (n)n! = (n + 1)! − 1 \} \subseteq \bN^+$.
+
+  Queremos ver que $A = \bN^+$. Hacemos la prueba por inducción sobre $n$.
+
+  \begin{adjustwidth}{1cm}{0cm}
+    \begin{enumerate}[1.]
+      \item \underline{Paso base.} Veamos que el resultado es cierto para $n = 1$. \newline
+        $(1 + 1)! - 1 = 2! - 1 = 2 \cdot 1 - 1 = 1 = 1 \cdot 1 = (1)1!$,
+        entonces el resultado se cumple para $n = 1$.
+      \item \underline{Paso inductivo.} Demostremos que si para $n$ es cierto el resultado,
+       entonces para $s(n) = n + 1$ también es cierto. \newline
+
+      (HI): Supongamos que $n \in A$. Veamos que $s(n) \in A$.
+
+      \begin{align*}
+        (s(n) + 1)! - 1 &= s(n+1)! -1  \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; (conmutatividad \;\; de \;\; +), \; (definici\acute{o}n \;\; de \;\; Sumar), \\
+        &= ((n + 1) + 1)! - 1 \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; (Observaci\acute{o}n \;\; 4.6), \\
+        &= ((n + 1) + 1) (n + 1)! - 1  \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;  (definici\acute{o}n \;\; de \;\; factorial), \\
+        &= (n + 1) (n + 1)! + (n + 1)! - 1  \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; (distributividad), \\
+        &= (n + 1) (n + 1)! + (n)n! + \dotsc + (2)2! + (1)1!  \;\;\;\; (HI), \\
+        &= s(n) s(n)! + (n)n! + \dotsc + (2)2! + (1)1!  \;\;\;\;\;\;\;\;\;\;\;\;\; (Observaci\acute{o}n \;\; 4.6).
+      \end{align*}
+      $i.e. \;\; s(n) \in A$.
+    \end{enumerate}
+  \end{adjustwidth}
+
+  Por lo tanto, por el Axioma 5 concluimos que $A = \bN^+$.
+
+  \begin{flushright}
+    $\square$
+  \end{flushright}
+
+  2. (2.5 puntos) Demuestre que para todo $n \in \bN$ se tiene que: $2^{2n} - 1$ es divisible por 3. \newline
+
+  Definición. Sean $a, b, n \in \bZ$ y $n \neq 0$, decimos que $n | a - b \iff \exists k \in \bZ(nk = a - b)$. \newline
+
+  Observación. Si $n \in \bZ \setminus \{ 0 \}$, entonces tomando $k = 0$,
+  tenemos que $n \cdot k = 0$. $i.e. \;\; n | 0$. \newline
+
+  Demostración. Sea $A := \{ n \in \bN : 3 | 2^{2n} - 1 \} \subseteq \bN$.
+
+  Queremos ver que $A = \bN$. Hacemos la prueba por inducción sobre $n$.
+
+  \begin{adjustwidth}{1cm}{0cm}
+    \begin{enumerate}[1.]
+      \item \underline{Paso base.} Veamos que el resultado es cierto para $n = 0$. \newline
+        $2^{2(0)} - 1 = 2^0 - 1 = 1 - 1 = 0$ y tenemos que $\forall m \in \bZ \setminus \{ 0 \}(m | 0)$,
+        en particular $3 | 0$, entonces el resultado se cumple para $n = 0$.
+      \item \underline{Paso inductivo.} Demostremos que si para $n$ es cierto el resultado,
+       entonces para $s(n) = n + 1$ también es cierto. \newline
+
+      (HI): Supongamos que $n \in A$. Veamos que $s(n) \in A$. \newline
+      Entonces $3 | 2^{2n} - 1$, $i.e. \;\; \exists k \in \bZ (3k + 1 = 2^{2n})$.
+      \begin{align*}
+        2^{2s(n)} - 1 &= (2^2)^{s(n)} - 1  \;\;\;\;\;\;  \\
+        &= 2^2 \cdot (2^2)^{n} - 1  \;\;\;  (definici\acute{o}n \;\; de \;\; Exponenciar), \\
+        &= 4(3k + 1) - 1  \;\; (HI), \; (definici\acute{o}n \;\; de \;\; divisor), \\
+        &= 4 \cdot 3 k + 4 - 1  \;\; (distributividad), \\
+        &= 3 \cdot 4 k + 3  \;\;\;\;\;\;\;\; (conmutatividad \;\; de \;\; \cdot), \\
+        &= 3(4k + 1)  \;\;\;\;\;\;\; (distributividad).
+      \end{align*}
+      $i.e. \;\; 3 | 2^{2s(n)} - 1$, pues $4k + 1 \in \bZ$. \newline
+      Entonces $s(n) \in A$.
+    \end{enumerate}
+  \end{adjustwidth}
+
+  Por lo tanto, por el Axioma 5 concluimos que $A = \bN$.
+
+  \begin{flushright}
+    $\square$
+  \end{flushright}
+
+  3. (2.5 puntos) Demostrar que para todo $n \in \bN^+$ se tiene que:
+
+  \begin{align*}
+    \left [1 - \frac{1}{4} \right] \cdot \left [1 - \frac{1}{9} \right] \cdotp \left [1 - \frac{1}{16} \right] \cdot \dotsc \cdot \left [1 - \frac{1}{(n+1)^2} \right] = \frac{n + 2}{2(n + 1)}.
+  \end{align*}
+
+  Demostración. Sea $A := \{ n \in \bN^+ : \left [1 - \frac{1}{4} \right] \cdot \left [1 - \frac{1}{9} \right] \cdotp \left [1 - \frac{1}{16} \right] \cdot \dotsc \cdot \left [1 - \frac{1}{(n+1)^2} \right] = \frac{n + 2}{2(n + 1)} \} \subseteq \bN^+$.
+
+  Queremos ver que $A = \bN^+$. Hacemos la prueba por inducción sobre $n$.
+
+  \begin{adjustwidth}{0.5cm}{0cm}
+    \begin{enumerate}[1.]
+      \item \underline{Paso base.} Veamos que el resultado es cierto para $n = 1$. \newline
+        $1 - \frac{1}{(1 + 1)^2} = 1 - \frac{1}{4} = \frac{3}{4} = \frac{1 + 2}{2(1 + 1)}$, entonces el resultado se cumple para $n = 1$.
+      \item \underline{Paso inductivo.} Demostremos que si para $n$ es cierto el resultado,
+       entonces para $s(n) = n + 1$ también es cierto. \newline
+
+      (HI): Supongamos que $n \in A$. Veamos que $s(n) \in A$. \newline
+      Entonces $\left [1 - \frac{1}{4} \right] \cdot \left [1 - \frac{1}{9} \right] \cdotp \left [1 - \frac{1}{16} \right] \cdot \dotsc \cdot \left [1 - \frac{1}{(n+1)^2} \right] = \frac{n + 2}{2(n + 1)}$.
+
+      \begin{align*}
+        \left [1 - \frac{1}{4} \right] \cdot \dotsc \cdot \left [1 - \frac{1}{(n+1)^2} \right] \cdot \left [1 - \frac{1}{(s(n)+1)^2} \right] &= \frac{n + 2}{2(n + 1)} \cdot \left [1 - \frac{1}{(s(n+1))^2} \right] \;\; (HI), (definici\acute{o}n \; de \; Sumar), \\
+        &= \frac{n + 2}{2(n + 1)} \left (1 - \frac{1}{((n+1) + 1)^2} \right ) \;\;\; (Observaci\acute{o}n \;\; 4.6), \\
+        &= \frac{n + 2}{2(n + 1)} \left (1 - \frac{1}{(n+2)^2} \right ) \\
+        &= \frac{n + 2}{2(n + 1)} - \frac{1}{2(n + 1)(n+2)} \;\;\; (distributividad), \\
+        &= \frac{(n+2)^2 - 1}{2(n + 1)(n+2)} \\
+        &= \frac{(n^2 + 4n + 4) - 1}{2(n + 1)(n+2)} \\
+        &= \frac{n^2 + 4n + 3}{2(n + 1)(n+2)} \\
+        &= \frac{(n + 1) (n + 3)}{2(n + 1)(n+2)} \\
+        &= \frac{(n + 3)}{2(n+2)} \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; (Cancelaci\acute{o}n \;\; de \;\; la \;\; multiplicaci\acute{o}n), \\
+        &= \frac{(n + 1) + 2}{2((n+1) + 1)} \\
+        &= \frac{s(n) + 2}{2(s(n) + 1)} \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; (Observaci\acute{o}n \;\; 4.6).
+      \end{align*}
+      $i.e. \;\; s(n) \in A$
+    \end{enumerate}
+  \end{adjustwidth}
+
+  Por lo tanto, por el Axioma 5 concluimos que $A = \bN^+$.
+
+  \begin{flushright}
+    $\square$
+  \end{flushright}
+
+  4. (2.5 puntos) Demostrar que para todo $n \in \bN$ se tiene que:
+
+  \begin{align*}
+    0^3 + 1^3 + \dotsc + n^3 = \frac{n^2 (n+1)^2}{4}.
+  \end{align*}
+
+  Demostración. Sea $A := \{ n \in \bN : 0^3 + 1^3 + \dotsc + n^3 = \frac{n^2 (n+1)^2}{4} \} \subseteq \bN$.
+
+  Queremos ver que $A = \bN$. Hacemos la prueba por inducción sobre $n$.
+
+  \begin{adjustwidth}{1cm}{0cm}
+    \begin{enumerate}[1.]
+      \item \underline{Paso base.} Veamos que el resultado es cierto para $n = 0$. \newline
+        $\frac{0^2(0+1)^2}{4} = \frac{0 \cdot 1^2}{4} = \frac{0}{4} = 0 = 0^3$, entonces el resultado se cumple para $n = 0$.
+      \item \underline{Paso inductivo.} Demostremos que si para $n$ es cierto el resultado,
+       entonces para $s(n) = n + 1$ también es cierto. \newline
+
+      (HI): Supongamos que $n \in A$. Veamos que $s(n) \in A$.
+      Entonces $0^3 + 1^3 + \dotsc + n^3 = \frac{n^2 (n+1)^2}{4}$.
+
+      \begin{align*}
+        0^3 + 1^3 + \dotsc + n^3 + s(n)^3 &= \frac{n^2 (n+1)^2}{4} + (n+1)^3  \;\;\;\;\;\;  (HI), \; (Observaci\acute{o}n \;\; 4.6), \\
+        &= \frac{n^2 (n+1)^2 + 4(n+1)^3}{4} \\
+        &= \frac{n^2 (n+1)^2 + 4(n+1)(n+1)^2}{4} \\
+        &= \frac{(n+1)^2(n^2 + 4(n+1))}{4} \;\;\;\; (distributividad), \\
+        &= \frac{(n+1)^2(n^2 + 4n + 4)}{4} \\
+        &= \frac{(n+1)^2(n + 2)^2}{4} \\
+        &= \frac{(n+1)^2((n + 1) + 1)^2}{4} \\
+        &= \frac{s(n)^2(s(n) + 1)^2}{4} \;\;\;\;\;\;\;\;\;\;\;\; (Observaci\acute{o}n \;\; 4.6).
+      \end{align*}
+      $i.e. \;\; s(n) \in A$.
+    \end{enumerate}
+  \end{adjustwidth}
+
+  Por lo tanto, por el Axioma 5 concluimos que $A = \bN$.
+
+  \begin{flushright}
+    $\square$
+  \end{flushright}
+%\end{enumerate}
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%    FIN DEL CUERPO DEL DOCUMENTO    %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

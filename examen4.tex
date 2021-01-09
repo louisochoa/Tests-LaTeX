@@ -1,0 +1,174 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%       Plantilla tipo ArtIculo     %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%      Para exámenes de ASI         %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%      Creado por Luis G. Ochoa     %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%   TIPO DE DOCUMENTO: ArtIculo   %%%%%%
+\documentclass[letterpaper,11pt]{article}
+
+%%%%%%%  ESPECIFICACION DE PAQUETES   %%%%%
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{changepage}
+\usepackage[spanish,es-lcroman]{babel} \decimalpoint
+\usepackage{graphicx} %Manejo de imagenes
+\usepackage{enumerate}% http://ctan.org/pkg/enumerate
+
+\usepackage{paralist} %
+%\usepackage{enumitem}% http://ctan.org/pkg/enumitem
+\renewcommand{\labelenumi}{\theenumi}
+\usepackage{simbolos} %Math symbols
+
+\DeclareUnicodeCharacter{2212}{-} % use minus symbol
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%    INICIO DEL CUERPO DEL DOCUMENTO    %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\setlength{\parindent}{0pt}
+
+Álgebra Superior I \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;
+Semestre 2021-1
+
+  \rule{16.6cm}{0.3pt} % Linea horizontal
+  \begin{center}
+    \LARGE \textbf{\\Tarea-Examen 4: Combinatoria}
+  \end{center}
+  \rule{16.6cm}{0.3pt} \newline
+
+  Grupo: 4010 \newline
+  Luis Gonzalo Ochoa Rivera \newline \newline
+
+  Cada ejercicio tiene un valor de 2.5 puntos. \newline
+
+  \begin{enumerate}
+    \item Conteste lo siguiente, justificando sus respuestas:
+      \begin{enumerate}[(a)]
+        \item ¿Cuántas placas distintas se pueden asignar en la Ciudad de México sabiendo que las placas tienen 3 números (del 0 al 9) y tres letras (contando 26 en el abecedario)?. \newline
+
+        La cantidad de placas distintas está dada por:
+
+        \begin{align*}
+          OR^3_{10} \; OR^3_{26} &= |\; ^{I_3} \{ 0, \; \dotsc \;, 9\} \;| \; |\; ^{I_3} \{ a, \; \dotsc \;, z\} \;| \;\;\; Por \; la \; Definici\acute{o}n \; 5.24\\
+          &= 10^3 \; 26^3 \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; Por \; el \; Teorema \; 5.26\\
+          &= 17576000
+        \end{align*}
+
+        \item ¿Cuántas placas distintas se pueden asignar en la Ciudad de México tales que la sección de números no empiecen con cero?.
+
+        La cantidad de placas distintas está dada por:
+
+        \begin{align*}
+          \binom{9}{1} \; OR^2_{10} \; OR^3_{26} = 9 \cdot 10^2 \cdot 26^3 = 15818400
+        \end{align*}
+      \end{enumerate}
+
+    \item Sabemos que un grupo de 10 personas cenará en una mesa rectangular con 10 lugares. Conteste las siguientes preguntas, justificando sus respuestas:
+
+      \begin{enumerate}[(a)]
+        \item ¿Cuántas maneras distintas hay de sentar a la mesa rectangular las 10 personas?.
+
+        \begin{align*}
+          P_{10} = 10! \;\;\; Por \; el \; Corolario \; 5.33
+        \end{align*}
+
+        \item Si la mesa es rectangular y se quiere sentar a la dueña de la casa en alguna de las cabeceras, ¿Cuántas maneras distintas hay de sentar a la mesa a las 10 personas?.
+
+        Entonces de las 2 cabeceras elegimos 1 para la dueña y permutamos a las otras 9 personas en los 9 lugares restantes:
+
+        \begin{align*}
+          \binom{2}{1} P_9 = 2 \cdot 9! \;\;\; Por \; el \; Corolario \; 5.33
+        \end{align*}
+
+      \end{enumerate}
+
+    \item Supongamos que tenemos 12 libros, 4 de Matemáticas, 3 de Química, 3 de Biología y 2 de Física. Conteste las siguientes preguntas, justificando sus respuestas:
+      \begin{enumerate}[(a)]
+        \item ¿Cuántas maneras hay de arreglar los libros en un estante si se quiere acomodarlos por materias?.
+
+        Permutamos los libros de cada materia por separado y después permutamos las materias:
+
+        \begin{align*}
+          P_4 (P_4 \cdot P_3 \cdot P_3 \cdot P_2) = 4! \cdot 4! \cdot 3! \cdot 3! \cdot 2! = 41472
+        \end{align*}
+
+        \item ¿Cuántas maneras hay de arreglar los libros en un estante si se quiere acomodarlos por materias y que los de Física queden junto a los de Matemáticas?.
+
+        Similarmente al anterior, pero esta vez consideraremos que los de Matemáticas y Física son de la misma materia, aunque debemos permutarlos antes:
+
+        \begin{align*}
+          P_3 ( P_2 (P_4 \cdot P_2) \cdot P_3 \cdot P_3) = 4! \cdot 4! \cdot 3! \cdot 3! = 20736
+        \end{align*}
+
+      \end{enumerate}
+
+    \item Conteste las siguientes preguntas:
+      \begin{enumerate}[(a)]
+        \item ¿Cuántas palabras (sucesiones de letras) distintas se pueden formar revolviendo las letras de la palabra “MATEMATICA”?. \newline
+
+        La palabra “MATEMATICA” tiene 10 letras, entonces todas las permutaciones
+        son $P_{10}$, pero las letras M, A y T tienen repeticiones, por lo que debemos descontarlas y para hacer esto, dividimos entre sus respectivas permutaciones: \\
+        \begin{align*}
+          \frac{P_{10}}{P_2 P_3 P_2} = \frac{P_{10}}{P_4} = \frac{10!}{4!} = 151200 = \frac{10!}{(10 - 6) !} = O^6_{10}
+        \end{align*}
+
+        \item  ¿Cuántas palabras (sucesiones de letras) distintas se pueden formar de 5 letras con las letras de la palabra “MATEMATICA” de tal manera que una letra se use a lo más cuantas veces aparece en “MATEMATICA”?. \newline
+
+        Análogamente a una mano de póker, consideremos los siguientes casos: \\
+
+        $\cdot )$ Ninguna letra se repite. \\
+        Entonces de las 6 letras diferentes, tomamos 5 y las permutamos:
+        \begin{align*}
+          P_5 \binom{6}{5} = 5! \cdot 6 = 6! = 720
+        \end{align*}
+
+        $\cdotp \cdot )$ Sólo una letra se repite. $i.e.$ tenemos un par (de letras).\\
+        Para que una se repita, tomamos 1 de las 3 opciones: M, A o T.
+        Entonces de las 5 letras diferentes restantes, tomamos 3.
+        Finalmente, permutamos las 5 letras resultantes y descontamos la repetición:
+        \begin{align*}
+          \frac{P_5}{P_2} \binom{5}{3} \binom{3}{1} = 1800
+        \end{align*}
+
+        $\cdot \cdot \cdot )$ Dos letras se repiten. $i.e.$ tenemos 2 pares de letras.\\
+        Para que dos se repitan, tomamos 2 de las 3 opciones: M, A o T.
+        Entonces de las 4 letras diferentes restantes, tomamos 1.
+        Finalmente, permutamos las 5 letras resultantes y descontamos las repeticiones:
+        \begin{align*}
+          \frac{P_5}{P_2 P_2} \binom{4}{1} \binom{3}{2} = 360
+        \end{align*}
+
+        $\cdotp v )$ Una letra se repite dos veces. $i.e.$ tenemos 1 tercia de letras.\\
+        La $A$ es la única que se puede repetir dos veces, entonces es la única opción.
+        Entonces de las 5 letras diferentes restantes, tomamos 2.
+        Finalmente, permutamos las 5 letras resultantes y descontamos las repeticiones:
+
+        \begin{align*}
+          \frac{P_5}{P_3} \binom{5}{2} = 200
+        \end{align*}
+
+        $v )$ Una letra se repite dos veces y otra una. $i.e.$ tenemos full: 1 tercia y 1 par de letras.\\
+        La $A$ es la única que se puede repetir dos veces, entonces esa es nuestra tercia.
+        El par debe ser alguna de las letras restantes que se pueden repetir: M o T.
+        Finalmente, permutamos las 5 letras resultantes y descontamos las repeticiones:
+        \begin{align*}
+          \frac{P_5}{P_2 P_3} \binom{2}{1} = 20
+        \end{align*}
+
+        Considerando nuestras letras repetidas, esos son los únicos casos posibles. \\ \\
+        Sumando las soluciones de los 5 casos, el total de palabras distintas de 5 letras es:
+
+        \begin{align*}
+          P_5 \binom{6}{5} + \frac{P_5}{P_2} \binom{5}{3} \binom{3}{1} + \frac{P_5}{P_2 P_2} \binom{4}{1} \binom{3}{2} + \frac{P_5}{P_3} \binom{5}{2} + \frac{P_5}{P_2 P_3} \binom{2}{1} = 720 + 1800 + 360 + 200 + 20 = 3100
+        \end{align*}
+
+      \end{enumerate}
+
+  \end{enumerate}
+\end{document}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %%%%%%%    FIN DEL CUERPO DEL DOCUMENTO    %%%%%%%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
