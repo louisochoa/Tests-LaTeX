@@ -1,0 +1,165 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%       Plantilla tipo ArtIculo     %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%      Para exámenes de ASI         %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%      Creado por Luis G. Ochoa     %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%   TIPO DE DOCUMENTO: ArtIculo   %%%%%%
+\documentclass[letterpaper,11pt]{article}
+
+%%%%%%%  ESPECIFICACION DE PAQUETES   %%%%%
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{changepage}
+\usepackage[spanish,es-lcroman]{babel} \decimalpoint
+\usepackage{graphicx} %Manejo de imagenes
+\usepackage{enumerate}% http://ctan.org/pkg/enumerate
+
+\usepackage{paralist} %
+%\usepackage{enumitem}% http://ctan.org/pkg/enumitem
+\renewcommand{\labelenumi}{\theenumi}
+\usepackage{simbolos} %Math symbols
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%    INICIO DEL CUERPO DEL DOCUMENTO    %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\setlength{\parindent}{0pt}
+
+Álgebra Superior I \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;
+Semestre 2021-1
+
+  \rule{16.6cm}{0.3pt} % Linea horizontal
+  \begin{center}
+    \LARGE \textbf{\\Tarea-Examen 2: Relaciones y funciones.}
+  \end{center}
+  \rule{16.6cm}{0.3pt} \newline
+
+  Grupo: 4010 \newline
+  Luis Gonzalo Ochoa Rivera \newline \newline
+
+  Resuelve los siguientes ejercicios justificando tu respuesta. \newline
+
+%\begin{enumerate}
+  %\item
+  1. (5 puntos) Diga si las siguientes afirmaciones son verdaderas o falsas, justificando su respuesta. \newline
+
+  \begin{adjustwidth}{1cm}{0cm}
+    \begin{enumerate}[(a)]
+      \item Si $R$ y $S$ son relaciones definidas sobre $A \neq \emptyset$ tales
+        que $R \cup S$ es una relación de equivalencia sobre $A$, entonces tanto
+        $R$ y $S$ son relaciones de equivalencia sobre $A$.
+
+      \item Si $R$ y $S$ son relaciones definidas sobre $A \neq \emptyset$ tales
+        que $R \cap S$ es una relación de equivalencia sobre $A$, entonces
+        tanto $R$ y $S$ son relaciones de equivalencia sobre $A$. \newline
+
+    \end{enumerate}
+  %\end{adjustwidth}
+
+    Ambas afirmaciones son falsas, veamos un contraejemplo. \newline
+
+    Sean $A = \{ 1, 2 \}$, $R = \{ (1, 1), (1, 2), (2, 2) \}$ y $S = \{(1, 1) (2, 1), (2, 2) \}$; \\
+    entonces $R \cup S = \{ (1, 1), (1, 2), (2, 1), (2, 2) \}$. \newline
+    La cual, es una relación de equivalencia; ya que es reflexiva ($1 \sim 1$ y $2 \sim 2$),
+    simétrica ($1 \sim 2$ y $2 \sim 1$) y transitiva ($1 \sim 2$, $2 \sim 1$ y $1 \sim 1$;
+    $2 \sim 1$, $1 \sim 2$ y $2 \sim 2$).
+    Pero $R$ no es simétrica porque $(2, 1) \notin R$ y análogamente $S$ no es simétrica. \newline
+    Por lo tanto $R$ y $S$ no son relaciones de equivalencia. \newline
+
+    Similarmente, notemos que $R \cap S = \{ (1, 1), (2, 2) \}$ es una relación de equivalencia.
+    Y como ya vimos, $R$ y $S$ no son relaciones de equivalencia. \newline
+  \end{adjustwidth}
+
+  %\item
+  2. (5 puntos) Sean $A, B, C, D$ conjuntos cualesquiera y sean
+  $f : A \rightarrow B$, $g : B \rightarrow C \;$ y $\; h : C \rightarrow D$ funciones.
+  Demuestre lo siguiente: \newline
+
+  \begin{adjustwidth}{1cm}{0cm}
+    \begin{enumerate}[(a)]
+      \item  Si $f$ y $g$ son biyectivas, entonces $g \circ f$ es biyectiva. \newline
+        Supongamos $f$ y $g$ son biyectivas. \newline
+        Entonces $f^{-1}$ y $g^{-1}$ son funciones, por el Corolario 3.53
+        y $f^{-1} \circ g^{-1}$ es una función por la Definición 3.40. \newline
+        Entonces
+        \begin{align*}
+          (g \circ f) \circ (f^{-1} \circ g^{-1}) &= g \circ (f \circ f^{-1}) \circ g^{-1} \;\;
+          por \;\; el \;\; Lema \;\; 3.48. \\
+          &= g \circ id_{B} \circ g^{-1} \;\; por \;\; la \;\; Proposici\acute{o}n \;\; 3.52. \\
+          &= g \circ g^{-1} \;\; por \;\; la \;\; Observaci\acute{o}n \;\; 3.43. \\
+          &= id_{C} \;\; por \;\; la \;\; Proposici\acute{o}n \;\; 3.52.
+        \end{align*}
+        $i.e. \; (f^{-1} \circ g^{-1})$ es el inverso derecho de $g \circ f$ por la Definición 3.44. \newline
+
+        Similarmente,
+        \begin{align*}
+          (f^{-1} \circ g^{-1}) \circ (g \circ f) &= f^{-1} \circ (g^{-1} \circ g) \circ f \\
+          &= f^{-1} \circ id_{B} \circ f \\
+          &= f^{-1} \circ f \\
+          &= id_{A}
+        \end{align*}
+        $i.e. \; (f^{-1} \circ g^{-1})$ es el inverso izquierdo de $g \circ f$. \newline
+
+        Entonces por la Definición 3.50, $g \circ f$ es invertible. \newline
+        Y por el Corolario 3.53, $g \circ f$ es biyectiva. \newline
+
+        Además, por la Proposición 3.52, $(g \circ f)^{-1}$ es función y es el inverso derecho e izquierdo de $\; g \circ f$. \newline
+        Y por el Teorema 3.49, $(g \circ f)^{-1} = f^{-1} \circ g^{-1}$.
+
+        \begin{flushright}
+          $\square$
+        \end{flushright}
+
+      %\clearpage
+
+      \item Si $g \circ f$ y $h \circ g$ son biyectivas, entonces $f$, $g$ y $h$
+        son biyectivas. Sugerencia: demuestre primero que $g$ y $h$ son suprayectivas,
+        luego que $f$ y $g$ son inyectivas, después que $h$ es inyectiva y finalmente
+        que $f$ es sobre. \newline
+
+        Supongamos $\; g \circ f \;$ y $\; h \circ g \;$ son biyectivas. \newline
+
+        En particular, $\; g \circ f \;$ y $\; h \circ g \;$ son suprayectivas. \newline
+        Sea $c \in C$, entonces $\exists a \in A$ tal que $c = g \circ f (a) = g(f(a))$. \newline
+        Como $f$ es función, entonces $\exists b \in B \;$ t.q. $\; b = f(a) \;$ y $\; c = g(b)$. \newline
+        $i.e. \; g$ es suprayectiva (ya que $\forall c \in C \;\; \exists b \in B \;$ t.q. $\; c = g(b)$). \newline
+
+        Análogamente $h$ es suprayectiva. \newline
+
+        $g \circ f \;$ y $\; h \circ g \;$ también son inyectivas. \newline
+
+        Sean $b_1, b_2 \in B$ tales que $g(b_1) = g(b_2)$ \newline
+        entonces $h(g(b_1)) = h(g(b_2))$, porque $h$ es función. \newline
+        entonces $b_1 = b_2$, ya que $\; h \circ g \;$ es inyectiva. \newline
+        Se sigue que $g$ es inyectiva. \newline
+
+        Análogamente $f$ es inyectiva. \newline
+
+        Sean $c_1, c_2 \in C$ tales que $h(c_1) = h(c_2)$. \newline
+        Como $g$ es suprayectiva, $\exists b_1, b_2 \in B$ tales que $c_1 = g(b_1)$ y $c_2 = g(b_2)$. \newline
+        Entonces $h(g(b_1)) = h(c_1) = h(c_2) = h(g(b_2))$, ya que $h$ es función. \newline
+        Entonces $b_1 = b_2$, ya que $\; h \circ g \;$ es inyectiva. \newline
+        Como $g$ es función, entonces $c_1 = g(b_1) = g(b_2) = c_2$ \newline
+        $i.e. \; h$ es inyectiva. \newline
+
+        Sea $b \in B$, como $g$ es función, entonces $\exists c \in C \;$ t.q. $\; c = g(b)$. \newline
+        Como $\; g \circ f \;$ es suprayectiva, $\exists a \in A \;$ t.q. $\; g(b) = c = g(f(a))$. \newline
+        Como $g$ es inyectiva, entonces $b = f(a)$. \newline
+        Se sigue que $f$ es suprayectiva. \newline
+
+        Como $f, g$ y $h$ son suprayectivas e inyectivas, entonces son biyectivas por la Definición 3.25. \newline
+
+        \begin{flushright}
+          $\square$
+        \end{flushright}
+
+    \end{enumerate}
+  \end{adjustwidth}
+%\end{enumerate}
+
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%    FIN DEL CUERPO DEL DOCUMENTO    %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
